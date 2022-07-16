@@ -43,19 +43,21 @@ double median (const vector<double>& vec){
     return new_vec[n/2];
 }
 
+//calculate square summation
 double square_sum(const vector<double>& vec){
     double s = 0;
     for (auto i : vec)
         s += pow(i, 2);
     return s;
 }
-
+//calculate standard deviation
 double standard_dev(const vector<double>& vec){
     double n = vec.size();
     double numerator = n * square_sum(vec) - pow(sum(vec), 2);
     double denominator = n * (n-1);
     return pow(numerator/denominator, 0.5);
 }
+//operator for substracting
 vector <double> operator-(const vector<double>& h1_data, double b){
     vector<double> ret_vec;
     for (auto i : h1_data){
@@ -64,6 +66,7 @@ vector <double> operator-(const vector<double>& h1_data, double b){
     return ret_vec;
 
 }
+//operator for multiplying
 vector<double> operator *(const vector<double>& h1_data, vector<double>& h2_data){
     if (h1_data.size() != h2_data.size()){
         throw length_error("Data sizes are not equal length.");
@@ -81,6 +84,7 @@ vector<double> operator *(const vector<double>& h1_data, vector<double>& h2_data
     return result;
 }
 
+//Calculates the Pearson correlation coefficient between two vectors (stocks)
 double pearson_correlation(const vector<double>& h1_data, const vector<double>& h2_data){
     if (h1_data.size() != h2_data.size()){
         throw length_error("Data sizes are not equal length.");

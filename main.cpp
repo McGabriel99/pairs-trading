@@ -14,9 +14,12 @@ int main (int argc, char* argv[]){
         return -1;
     }
     else{
+        //store adjusted return of first stock
         vector<double> adj_return1 = adj_ret(argv[1]);
+        //store adjusted return of second stock
         vector<double> adj_return2 = adj_ret(argv[2]);
 
+        //checks if the two stocks have the same number of days
         if (adj_return1.size() != adj_return2.size()){
             cout << "Data of unequal size. Exiting...\n";
             return -1;
@@ -31,13 +34,13 @@ int main (int argc, char* argv[]){
         double median_return2 = median(adj_return2);
         double standard_dev2 = standard_dev(adj_return2);
 
-        //Need to complete: output the mean, median, standard deviation of each stock
+        //Output the mean, median, standard deviation of each stock
         cout << "Stock" << "    " << "Mean" << "    " << "Median" << "    " << "Standard Deviation\n";
         cout << "=====" << "    " << "====" << "    " << "======" << "    " << "==================\n";
         cout << argv[1] << "    " << mean_return1 << "    " << median_return1 << "    " << standard_dev1 << "\n";
         cout << argv[2] << "    " << mean_return2 << "    " << median_return2 << "    " << standard_dev2 << "\n";
         
-        //Need to complete calculation of Pearson correlation coefficient of two stocks
+        //Calculation of Pearson correlation coefficient of two stocks and output result
         vector<double> log_ret1 = log_ret(adj_return1);
         vector<double> log_ret2 = log_ret(adj_return2);
         double pears_corr = pearson_correlation(log_ret1, log_ret2);  
