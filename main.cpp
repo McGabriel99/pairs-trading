@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "calculation.h"
 #include "processing.h"
 
 using std::cout;
 using std::vector;
+using std::setprecision;
 
 int main (int argc, char* argv[]){
     if (argc != 3){
@@ -30,8 +32,17 @@ int main (int argc, char* argv[]){
         double standard_dev2 = standard_dev(adj_return2);
 
         //Need to complete: output the mean, median, standard deviation of each stock
+        cout << "Stock" << "    " << "Mean" << "    " << "Median" << "    " << "Standard Deviation\n";
+        cout << "=====" << "    " << "====" << "    " << "======" << "    " << "==================\n";
+        cout << argv[1] << "    " << mean_return1 << "    " << median_return1 << "    " << standard_dev1 << "\n";
+        cout << argv[2] << "    " << mean_return2 << "    " << median_return2 << "    " << standard_dev2 << "\n";
+        
         //Need to complete calculation of Pearson correlation coefficient of two stocks
-
+        vector<double> log_ret1 = log_ret(adj_return1);
+        vector<double> log_ret2 = log_ret(adj_return2);
+        double pears_corr = pearson_correlation(log_ret1, log_ret2);  
+        cout << "The Pearson Correlation Cofficient of " << argv[1] << " and "
+        << argv[2] << " is: " << setprecision(6) << pears_corr << "\n";
     }
     return 0;
 }
