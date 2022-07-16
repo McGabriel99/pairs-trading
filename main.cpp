@@ -29,6 +29,8 @@ int main (int argc, char* argv[]){
         double median_return2 = median(adj_return2);
         double standard_dev2 = standard_dev(adj_return2);
 
+        //Need to complete: output the mean, median, standard deviation of each stock
+        //Need to complete calculation of Pearson correlation coefficient of two stocks
 
     }
     return 0;
