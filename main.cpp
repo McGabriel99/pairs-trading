@@ -19,6 +19,17 @@ int main (int argc, char* argv[]){
             cout << "Data of unequal size. Exiting...\n";
             return -1;
         }
+        //Mean, median, standard deviation of first stock adjusted return
+        double mean_return1 = mean(adj_return1);
+        double median_return1 = median(adj_return1);
+        double standard_dev1 = standard_dev(adj_return1);
+
+        //Mean, median, standard deviation of second stock adjusted return
+        double mean_return2 = mean(adj_return2);
+        double median_return2 = median(adj_return2);
+        double standard_dev2 = standard_dev(adj_return2);
+
 
     }
+    return 0;
 }
